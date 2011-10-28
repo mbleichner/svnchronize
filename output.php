@@ -28,7 +28,7 @@
       <input type="text" name="db" value="<?php echo $db ? $db : 'db-name'; ?>" size="12"/>
       <input type="text" name="user" value="<?php echo $user ? $user : 'username'; ?>" size="12"/>
       <input type="text" name="pw" value="<?php echo $pw ? $pw : 'password'; ?>" size="12"/>
-      <input type="submit" name="save_config" value="speichern">
+      <input type="submit" name="save_config" value="save config">
     </form>
 
     <form method="post">
