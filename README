@@ -1,0 +1,37 @@
+This tool allows to version control your MySQL database in PHP projects.
+
+It creates dump files and constantly synchronizes them with the database. This is
+done in an efficient way, so it doesn't slow down the main application too much.
+
+Currently, this tool is in a very early and experimental state, but already
+usable and seems to work quite well (at least for my purposes). But there is still
+a lot of potential for improvements.
+
+To disarm any potential flamers: I know that the database should not be included
+in the source tree because of some philosophic reasons. But in real life, this is
+sometimes unavoidable. Think of an application which registers its modules in
+the database. In this case you lose the ability of your VCS to roll back to an
+earlier revision, because the database tells the application to load non-existent
+modules. And this isn't the only scenario. Just look at real-life projects.
+
+Besides, memory is cheap :)
+
+
+Notice:
+
+- Merging and conflict resolution is currently only possible on a per-row basis.
+- The tool is meant to be included in another project. It will try to create
+  a folder in its parent directory to store the dump files. This folder can then
+  be included in the main project.
+
+Caution:
+
+- Don't use svnchronize without other backup strategies. It might eat your data.
+- The algorithms will only be efficient for tables with less than ~10k rows.
+
+Please also note:
+
+- This tool has its origin in subversion (thus the name) and i just adapted it to
+  git. I hope this hasn't introduced any strange problems :)
+- Source documentation can be built using doxygen. It is written in German, I'll
+  try to translate it when I find some spare time.
