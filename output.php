@@ -16,38 +16,37 @@
     form { border: 2px solid black; background: white; padding: 15px; font-weight: bold; overflow-x: auto; }
     .caption { float: left; color: #aaa; line-height: 18px; height: 18px; }
   </style>
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 </head>
 <body>
 
   <div id="container">
 
     <form method="post">
-      <div class="caption">Konfiguration</div>
-      <input type="checkbox" name="autosync" <?php echo ($autosync == 'active') ? 'checked="checked"' : ''; ?>/> Auto-Sync aktiv?
+      <div class="caption">Configuration</div>
+      <input type="checkbox" name="autosync" <?php echo ($autosync == 'active') ? 'checked="checked"' : ''; ?>/> sync automatically?
       &nbsp;&nbsp;&nbsp;&nbsp;
-      <input type="text" name="db" value="<?php echo $db; ?>" size="12"/>
-      <input type="text" name="user" value="<?php echo $user; ?>" size="12"/>
-      <input type="text" name="pw" value="<?php echo $pw; ?>" size="12"/>
+      <input type="text" name="db" value="<?php echo $db ? $db : 'db-name'; ?>" size="12"/>
+      <input type="text" name="user" value="<?php echo $user ? $user : 'username'; ?>" size="12"/>
+      <input type="text" name="pw" value="<?php echo $pw ? $pw : 'password'; ?>" size="12"/>
       <input type="submit" name="save_config" value="speichern">
     </form>
 
     <form method="post">
-      <div class="caption">Sync starten</div>
+      <div class="caption">Start sync</div>
       <input type="hidden" name="run" value="1"/>
-      <input type="submit" name="sync" value="Normaler Sync"/>
-      <input type="submit" name="unlock" value="Unlock &amp; Sync"/>
-      <input type="submit" name="import" value="Nur Import"/>
-      <input type="submit" name="export" value="Nur Export"/>
+      <input type="submit" name="sync" value="normal sync"/>
+      <input type="submit" name="unlock" value="unlock &amp; sync"/>
+      <input type="submit" name="import" value="import only"/>
+      <input type="submit" name="export" value="export only"/>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: #aaa;">Debugging:</span> &nbsp;
-      <input type="submit" name="setup_triggers" value="Trigger neu einrichten"/>
+      <input type="submit" name="setup_triggers" value="re-setup triggers"/>
     </form>
 
     <?php if (!$connected && $user && $pw && $db): ?>
       <form method="post">
-        Zum Anlegen der Datenbank bitte Root-PW eingeben: &nbsp;
+        Enter root password to create database: &nbsp;
         <input type="password" name="rootpw" size="12"/>
-        <input type="submit" name="createdb" value="DB anlegen"/>
+        <input type="submit" name="createdb" value="create database"/>
       </form>
     <?php endif; ?>
 

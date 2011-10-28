@@ -17,17 +17,33 @@ modules. And this isn't the only scenario. Just look at real-life projects.
 Besides, memory is cheap :)
 
 
-Notice:
+HOW TO USE:
+
+The tool can be used in two ways: either manually or automatically (or both). It
+can be included in the main project and work completely transparently or run
+manually from its web interface, whereas the second method allows more control
+over the behavior.
+
+Simply include start.php at the beginning of your application (i.e. the dispatcher
+in case of an MVC framework) and end.php at the end.
+
+The web interface, which also contains the configuration, can be accessed by
+through the index.php.
+
+
+NOTICE:
 
 - Merging and conflict resolution is currently only possible on a per-row basis.
 - The tool is meant to be included in another project. It will try to create
   a folder in its parent directory to store the dump files. This folder can then
   be included in the main project.
 
-Caution:
+
+CAUTION:
 
 - Don't use svnchronize without other backup strategies. It might eat your data.
 - The algorithms will only be efficient for tables with less than ~10k rows.
+
 
 Please also note:
 
