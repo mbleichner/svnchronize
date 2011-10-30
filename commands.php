@@ -83,7 +83,8 @@ function save_config($db, $user, $pw, $autosync) {
 function load_config() {
   global $db, $user, $pw, $autosync;
   action('loading config...');
-  list($db, $user, $pw, $autosync) = explode("\n", file_get_contents(SYNC_DATA_DIR."/config"));
+  if (is_file(SYNC_DATA_DIR."/config"))
+    list($db, $user, $pw, $autosync) = explode("\n", file_get_contents(SYNC_DATA_DIR."/config"));
   return success();
 }
 
