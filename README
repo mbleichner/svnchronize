@@ -47,7 +47,7 @@ CAUTION:
 
 Please also note:
 
-- This tool has its origin in subversion (thus the name) and i just adapted it to
-  git. I hope this hasn't introduced any strange problems :)
+- This tool has its origin in subversion (thus the name) and i just recently adapted
+  it to git. I hope this hasn't introduced any strange problems :)
 - Source documentation can be built using doxygen. It is written in German, I'll
   try to translate it when I find some spare time.
